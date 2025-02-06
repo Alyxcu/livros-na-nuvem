@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            margin-top: 10px; /* Espaço entre os links e a logo */
+        }
+        .logo img {
+            max-width: 100px; /* Tamanho da logo */
+            height: auto;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .book-item {
+            margin: 20px 0;
+        }
+        .book-item img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .book-item h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .book-item p {
+            font-size: 1em;
+            color: #777;
+        }
+        .contact-info {
+            margin: 20px 0;
+        }
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu de Navegação -->
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+        <!-- Logo abaixo dos links -->
+        <div class="logo">
+            <img src="assents/logo do site.png"logo do site">
+        </div>
+    </header>
+
+    <!-- Página Home -->
+    <section id="home" class="container">
+        <h1>Bem-vindo ao Meu Site</h1>
+        <p>Este é um site dedicado a compartilhar conhecimento e inspirar pessoas através da leitura. Aqui você encontrará recomendações de livros incríveis e poderá entrar em contato comigo para mais informações.</p>
+        <p>Explore nossa seção de <strong>Serviços</strong> para ver os livros disponíveis e a seção de <strong>Contato</strong> para falar comigo.</p>
+    </section>
+
+    <!-- Página Serviços -->
+    <section id="servicos" class="container" style="display: none;">
+        <h1>Serviços</h1>
+        <p>Aqui estão alguns dos livros que recomendo:</p>
+        
+        <div class="book-item">
+            <img src="livro1.jpg" alt="Livro 1">
+            <h2>O Poder do Hábito</h2>
+            <p>Autor: Charles Duhigg</p>
+            <p>Um livro incrível sobre como os hábitos funcionam e como podemos mudá-los.</p>
+        </div>
+        
+        <div class="book-item">
+            <img src="livro2.jpg" alt="Livro 2">
+            <h2>1984</h2>
+            <p>Autor: George Orwell</p>
+            <p>Um clássico distópico que faz refletir sobre sociedade e controle.</p>
+        </div>
+        
+        <div class="book-item">
+            <img src="livro3.jpg" alt="Livro 3">
+            <h2>O Alquimista</h2>
+            <p>Autor: Paulo Coelho</p>
+            <p>Uma jornada inspiradora sobre seguir seus sonhos.</p>
+        </div>
+    </section>
+
+    <!-- Página Contato -->
+    <section id="contato" class="container" style="display: none;">
+        <h1>Contato</h1>
+        <p>Entre em contato comigo para mais informações ou para compartilhar suas ideias!</p>
+        
+        <div class="contact-info">
+            <p><strong>E-mail:</strong> <a href="mailto:seuemail@exemplo.com">seuemail@exemplo.com</a></p>
+        </div>
+    </section>
+
+    <!-- JavaScript para alternar entre páginas -->
+    <script>
+        function showSection(sectionId) {
+            // Esconde todas as seções
+            document.querySelectorAll('.container').forEach(section => {
+                section.style.display = 'none';
+            });
+            // Mostra a seção clicada
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Adiciona eventos de clique aos links do menu
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita o comportamento padrão do link
+                const sectionId = this.getAttribute('href').substring(1); // Pega o ID da seção
+                showSection(sectionId); // Mostra a seção correspondente
+            });
+        });
+
+        // Mostra a Home por padrão ao carregar a página
+        window.onload = () => showSection('home');
+    </script>
+</body>
+</html>
